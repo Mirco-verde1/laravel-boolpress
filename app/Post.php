@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-   public function posts(){
+   public function infoAuthor(){
 
-    return $this->hasOne('App\Author');
+    return $this->belongsTo('App\Author');
    }
 
 
-   public function comment(){
+   public function comments(){
 
     return $this->hasMany('App\Comment');
    }

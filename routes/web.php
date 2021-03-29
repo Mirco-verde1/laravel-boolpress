@@ -18,3 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('authors', 'AuthorController@index');
+
+Route::get('posts', 'PostController@index');
+
+Route::get('comments', 'CommentController@index');
+
+
+
