@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('post', 'AuthorController@index');
+Route::get('authors', 'AuthorController@index');
