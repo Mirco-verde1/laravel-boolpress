@@ -7,18 +7,23 @@
 <div class="container mt-5 mb-5">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
-			<h4>Latest Comments</h4>
+
             @foreach ($comments as $item)
 
 
-			<ul class="timeline">
-				<li>
-					<a href="#" class="float-right">{{$item->id}}</a>
-					<p>{{$item->comment}}</p>
-             {{--       <h3>{{$item->info->id}}</h3> --}}
-				</li>
+			<div class="timeline">
 
-			</ul>
+                <h3>Articolo numero {{$item->post->id}}</h3>
+
+                <br>
+
+                <h3>Commento</h3>
+					<p>{{$item->comment}}</p>
+
+
+     <br><br>
+
+            </div>
 
             @endforeach
 
