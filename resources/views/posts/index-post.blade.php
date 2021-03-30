@@ -12,7 +12,8 @@
 @foreach ($posts as $post)
 
 
-  <div class="col">
+  <div class="container">
+      <div class="row">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">AUTHOR</h4>
@@ -22,10 +23,12 @@
          <p>{{$post->article}}</p>
 
 
+      <button> <a href="/authors">AUTHORS LIST</a></button>
 
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 

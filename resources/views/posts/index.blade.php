@@ -10,6 +10,7 @@
         <th scope="col">Surname</th>
         <th scope="col">Email</th>
         <th scope="col">Photo</th>
+        <th scope="col"><a href="{{route('posts.create')}}">Add New Articles</a></th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +25,9 @@
         <td>{{$detail->surname}}</td>
         <td>{{$detail->mail}}</td>
         <td><img src="{{$detail->detail->author_image}}" ></td>
+
+
+
       </tr>
 
 

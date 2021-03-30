@@ -23,13 +23,16 @@
 
 
     <div class="form-group">
-      <label for="exampleFormControlSelect2">Tags for your article</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+
+      <label for="tags[]">Tags for your article</label>
+
+      <select multiple class="form-control" name="tags[]" id="tags">
+
+        @foreach ($tags as $tag)
+        <option value="{{$tag->id}}">{{$tag->name}}</option>
+        @endforeach
+
+
       </select>
     </div>
 
@@ -39,5 +42,11 @@
       <textarea class="form-control" name="article" id="article" rows="8"></textarea>
     </div>
 
+
     <button class="btn btn-primary" type="submit">CREATE</button>  </form>
+
+    <br>
+    <a href="{{route('posts.index')}}"><button class="btn btn-primary">COMMENTS</button></a><br><br>
+
+    <a href="/"> <button class="btn btn-primary">HOME</button></a>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Author;
+use App\Tag;
 use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
@@ -12,6 +13,7 @@ class PostController extends Controller
     public function index(){
 
         $posts= Post::all();
+
 
         return view('posts.index-post', compact('posts'));
     }
@@ -27,7 +29,10 @@ class PostController extends Controller
 
         $authors = Author::all();
 
-        return view('posts.create',compact('authors'));
+
+        $tags= Tag::all();
+
+        return view('posts.create',compact('authors','tags'));
 
 
 
@@ -58,11 +63,13 @@ else{
     $newPost->fill($data);
     $newPost->save();
 
+    $newPost->tags()->attach($data['tags']);
+
+
 
     return redirect()->route('posts.index');
 
 }
-
 
 
 
