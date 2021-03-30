@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Author;
-
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -40,11 +40,31 @@ class PostController extends Controller
 
         $data = $request->all();
 
-        $newPost= new Post();
-        $newPost->fill($data);
-        $newPost->save();
+
+//semplice controllo che l'id esista e non sia modificato
+
+$author_id = $data['author_id'];
+
+if(!Author::find($author_id)){
+
+    return view('posts.error.error-page');
+}
 
 
-        return redirect()->route('posts.index');
+else{
+
+
+    $newPost= new Post();
+    $newPost->fill($data);
+    $newPost->save();
+
+
+    return redirect()->route('posts.index');
+
+}
+
+
+
+
     }
 }
