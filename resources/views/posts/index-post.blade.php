@@ -22,7 +22,10 @@
         <h4>ARTICLE</h4>
          <p>{{$post->article}}</p>
 
-
+         <h4>Tags articolo : </h4>
+       @foreach ($post->tags as $key)
+          <h4>{{$key->name}}</h4>
+       @endforeach
       <button> <a href="/authors">AUTHORS LIST</a></button>
 
       </div>

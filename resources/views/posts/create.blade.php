@@ -46,7 +46,7 @@
     <button class="btn btn-primary" type="submit">CREATE</button>  </form>
 
     <br>
-    <a href="{{route('posts.index')}}"><button class="btn btn-primary">COMMENTS</button></a><br><br>
+    <a href="{{route('posts.index')}}"><button class="btn btn-primary">POSTS</button></a><br><br>
 
     <a href="/"> <button class="btn btn-primary">HOME</button></a>
 @endsection
