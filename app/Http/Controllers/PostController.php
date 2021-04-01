@@ -14,9 +14,9 @@ class PostController extends Controller
 {
     public function index(){
 
-        $posts= Post::all();
+    $posts= Post::all();
 
-       Mail::to('verderosamirco@gmail.com')->send(New PostCreated());
+
         return view('posts.index-post', compact('posts'));
     }
 
@@ -66,6 +66,10 @@ else{
     $newPost->save();
 
     $newPost->tags()->attach($data['tags']);
+
+
+    //email part
+    Mail::to('verderosamirco@gmail.com')->send(New PostCreated( $newPost));
 
 
 
