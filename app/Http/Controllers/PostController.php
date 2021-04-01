@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Author;
+use App\Mail\PostCreated;
 use App\Tag;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -14,7 +16,7 @@ class PostController extends Controller
 
         $posts= Post::all();
 
-
+       Mail::to('verderosamirco@gmail.com')->send(New PostCreated());
         return view('posts.index-post', compact('posts'));
     }
 
