@@ -46,10 +46,12 @@ class PostController extends Controller
     public function store(Request $request){
 
         $data = $request->all();
+        $path = $request->file('image')->store('images');
 
+        dd($path);
 
 //semplice controllo che l'id esista e non sia modificato
-
+$path=$request->file('image')->store('public');
 $author_id = $data['author_id'];
 
 if(!Author::find($author_id)){
@@ -59,6 +61,8 @@ if(!Author::find($author_id)){
 
 
 else{
+
+
 
 
     $newPost= new Post();

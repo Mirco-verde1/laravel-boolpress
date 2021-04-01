@@ -2,7 +2,7 @@
 
 
 @section('content')
-<form action="{{route('posts.store')}}" method="post">
+<form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
 @csrf
 @method('POST')
 
@@ -37,6 +37,13 @@
     </div>
 
 
+        <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" class="form-control" id="image"  name="image">
+          </div>
+
+
+
     <div class="form-group">
       <label for="article">WRITE HERE</label>
       <textarea class="form-control" name="article" id="article" rows="8"></textarea>
@@ -45,7 +52,7 @@
 
     <button class="btn btn-primary" type="submit">CREATE</button>  </form>
 
-    <br>
+    <br><br>
     <a href="{{route('posts.index')}}"><button class="btn btn-primary">POSTS</button></a><br><br>
 
     <a href="/"> <button class="btn btn-primary">HOME</button></a>
