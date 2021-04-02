@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Post;
 use App\Author;
@@ -9,6 +10,7 @@ use App\Mail\PostCreated;
 use App\Tag;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
+
 
 class PostController extends Controller
 {
@@ -46,12 +48,14 @@ class PostController extends Controller
     public function store(Request $request){
 
         $data = $request->all();
-        $path = $request->file('image')->store('images');
+        $path = $request->file('picture')->store('images');
 
-        dd($path);
+
+
+
+
 
 //semplice controllo che l'id esista e non sia modificato
-$path=$request->file('image')->store('public');
 $author_id = $data['author_id'];
 
 if(!Author::find($author_id)){
@@ -67,6 +71,7 @@ else{
 
     $newPost= new Post();
     $newPost->fill($data);
+    $newPost->pic=$path;
     $newPost->save();
 
     $newPost->tags()->attach($data['tags']);

@@ -25,6 +25,7 @@
          <h4>Tags articolo : </h4>
        @foreach ($post->tags as $key)
           <h4>{{$key->name}}</h4>
+          <img src="{{ asset($post->pic) }}" />
        @endforeach
       <button> <a href="/authors">AUTHORS LIST</a></button>
 

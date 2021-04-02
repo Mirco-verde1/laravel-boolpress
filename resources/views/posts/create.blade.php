@@ -2,6 +2,7 @@
 
 
 @section('content')
+
 <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
 @csrf
 @method('POST')
@@ -16,10 +17,9 @@
           <option value="{{$item->id}}">{{$item->name}} {{$item->surname}}</option>
           @endforeach
 
-
-
-      </select>
+        </select>
     </div>
+
 
 
     <div class="form-group">
@@ -32,16 +32,16 @@
         <option value="{{$tag->id}}">{{$tag->name}}</option>
         @endforeach
 
-
       </select>
     </div>
 
 
-        <div class="form-group">
-            <label for="image">Upload Image</label>
-            <input type="file" class="form-control" id="image"  name="image">
-          </div>
+     <div class="form-group">
 
+      <label for="picture">Upload Image</label>
+      <input type="file" class="form-control" id="picture"  name="picture">
+
+    </div>
 
 
     <div class="form-group">
