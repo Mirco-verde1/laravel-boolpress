@@ -30,12 +30,11 @@
 
       </tr>
 
-
-
-
       @endforeach
+
 
 
     </tbody>
   </table>
 @endsection
+{{$authors->links()}}

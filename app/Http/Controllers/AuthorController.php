@@ -9,7 +9,7 @@ class AuthorController extends Controller
 {
   public function index(){
 
-    $authors= Author::all();
+    $authors= Author::latest()->paginate(5);
 
     return view('posts.index', compact('authors'));
   }

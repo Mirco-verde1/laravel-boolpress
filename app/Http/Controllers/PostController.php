@@ -71,7 +71,7 @@ else{
 
     $newPost= new Post();
     $newPost->fill($data);
-    $newPost->pic=$path;
+    $newPost->image=$path;
     $newPost->save();
 
     $newPost->tags()->attach($data['tags']);
@@ -88,5 +88,13 @@ else{
 
 
 
+    }
+
+
+    public function destroy(Post $post){
+        $post->author()->delete();
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }

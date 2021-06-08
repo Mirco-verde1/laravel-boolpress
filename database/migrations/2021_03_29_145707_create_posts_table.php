@@ -24,6 +24,10 @@ class CreatePostsTable extends Migration
             $table->foreign('author_id')
                   ->references('id')
                   ->on('authors');
+
+
+                  $table->foreign('author_id')->references('id')->on('author')->onDelete('cascade');
+
         });
     }
 
